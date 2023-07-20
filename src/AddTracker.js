@@ -4,15 +4,12 @@ export class AddTracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      trackers: props.trackers,
       symbol: '',
       price: null,
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.props.handleSubmit(this.state.symbol, this.state.price);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleSubmit() {
-
   }
 
   handleChange(event) {
