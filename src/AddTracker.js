@@ -4,11 +4,13 @@ export class AddTracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trackers: props.trackers,
       symbol: '',
-      price: null,
+      price: 0,
     };
-    this.handleSubmit = this.props.handleSubmit(this.state.symbol, this.state.price);
+    this.props = props;
+    this.handleSubmit = () => {
+      this.props.handleSubmit(this.state.symbol, this.state.price);
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -23,7 +25,7 @@ export class AddTracker extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label for='symbol'>Option Symbol</label>
+          <label htmlFor='symbol'>Option Symbol</label>
           <input 
             type='text' 
             name='symbol' 
@@ -34,7 +36,7 @@ export class AddTracker extends Component {
           />
         </div>
         <div>
-          <label for='price'>Purchase/Sell Price</label>
+          <label htmlFor='price'>Purchase/Sell Price</label>
           <input 
             type='number' 
             name='price' 

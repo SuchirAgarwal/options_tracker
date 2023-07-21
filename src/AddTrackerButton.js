@@ -13,12 +13,12 @@ export class AddTrackerButton extends Component {
 
   handleClick() {
     this.setState({ viewingTrackers: !this.state.viewingTrackers });
-    console.log('here')
+    // console.log('here')
   }
 
   render() {
     const viewingTrackers = this.state.viewingTrackers
-    console.log(viewingTrackers);
+    // console.log(viewingTrackers);
     return (
       <div>
         {viewingTrackers 

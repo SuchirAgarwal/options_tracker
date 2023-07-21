@@ -6,14 +6,16 @@ export class TrackerList extends Component {
     super(props);
     this.state = {
       trackers: props.trackers,
-      numTrackers: 0,
+      numTrackers: props.numTrackers,
     };
   }
 
   render() {
     return (
       <div>
-        {this.state.trackers}
+        {this.state.trackers.map(
+          (tracker) => <Tracker symbol={tracker.symbol} purchasePrice={tracker.purchasePrice} id={tracker.id} />
+        )}
       </div>
     )
   }
